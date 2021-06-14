@@ -1,3 +1,5 @@
+// 23, 24 - implementation of stacks using array
+
 #include <stdio.h>
 #include <stdlib.h>
 

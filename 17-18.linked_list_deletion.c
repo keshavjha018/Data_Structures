@@ -1,3 +1,5 @@
+// video 17,18
+
 #include <stdio.h>
 #include <stdlib.h>
 
