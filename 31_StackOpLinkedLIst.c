@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//PUSH, POP,PEEK operations
+
 struct Node* top;
 
 struct Node{
