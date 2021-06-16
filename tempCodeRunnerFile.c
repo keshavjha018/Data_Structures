@@ -1,1 +1,12 @@
-h
+printf("Before Push: %d \n", check(s));
+    // push(s, 34);
+    // push(s, 5);
+    // push(s, 335);
+    // push(s, 54);
+    // push(s, 1);
+    // push(s, 114);
+    // push(s, 164);
+    // push(s, 41);
+    // push(s, 614);
+    // push(s, 4);
+    // push(s, 6); 

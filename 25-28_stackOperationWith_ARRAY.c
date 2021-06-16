@@ -52,7 +52,6 @@ int pop(struct stack *ptr)
     if (check(ptr) == -1)
     {
         printf("Stack Underflow (empty), cant pop\n");
-        return -11; //return any random no.
     }
     else
     {
