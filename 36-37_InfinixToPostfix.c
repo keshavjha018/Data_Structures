@@ -26,13 +26,14 @@ int preced(char a){
     // }
     if (a =='/' || a== '*')
     {
-        return 2;
+        return 3;
     }
     else if (a =='+' || a== '-')
     {
-        return 1;
+        return 2;
     }
-    return 0;
+    else
+        return 0;
 }
 
 int isOperator(char a){
@@ -40,12 +41,28 @@ int isOperator(char a){
     {
         return 1;
     }
-    return 0;
+    else
+    {
+        return 0;
+    }
+    
 }
 
-void push(struct stack *ptr, char val)
+int isFull(struct stack *ptr)
 {
     if (ptr->top == ptr->size - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void push(struct stack* ptr, char val)
+{
+    if (isFull(ptr))
     {
         printf("Overflow\n");
     }
@@ -63,23 +80,23 @@ char pop(struct stack *ptr)  // to retuen char => char pop
     }
     else
     {
-        char poppedChar = ptr->arr[ptr->top];
+        char val = ptr->arr[ptr->top];
         ptr->top--;
-        return poppedChar;
+        return val;
     }
 }
 
 // returns precedence of stack top
-int stackTop(struct stack *ptr){
-    return preced(ptr->arr[ptr->top]);
+int stackTop(struct stack * ptr){
+    return ptr->arr[ptr->top];
 }
 
-char* intopo(char *infix){
-    struct stack *sp = (struct stack *) malloc(sizeof(struct stack));
+char* intopo(char* infix){
+    struct stack * sp = (struct stack *) malloc(sizeof(struct stack));
     sp->size = 30;
     sp->top = -1;
     sp->arr = (char *) malloc(sp->size * sizeof(char));
-    char *postfix = (char *) malloc(sizeof(char) * (strlen(infix)+1));
+    char * postfix = (char *) malloc(sizeof(char) * (strlen(infix)+1));
     int i=0, j=0; // infix and postfix counter/scanner
 
     while (infix[i] != '\0')
@@ -92,7 +109,7 @@ char* intopo(char *infix){
         }
         else
         {
-            if (preced(infix[i]) > preced(stackTop(sp)) )
+            if(preced(infix[i]) > preced(stackTop(sp)) )
             {
                 push(sp, infix[i]);
                 i++;
@@ -115,7 +132,7 @@ char* intopo(char *infix){
 }
 int main()
 {
-    char * infix = "x-y*d";
+    char * infix = "x-y*d+2*a";
     printf("%s",intopo(infix));
     return 0;
 }
