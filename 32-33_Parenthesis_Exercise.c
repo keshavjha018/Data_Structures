@@ -10,6 +10,18 @@ struct stack
     char *arr;
 };
 
+int isEmpty(struct stack *ptr){
+    if (ptr->top == -1)
+    {
+        return 1;       
+    }
+    else
+    {
+        return 0;
+    }
+    
+}
+
 void push(struct stack *ptr, char value)
 {
     if (ptr->top == ptr->size - 1)
@@ -25,7 +37,7 @@ void push(struct stack *ptr, char value)
 
 void pop(struct stack *ptr)
 {
-    if (ptr->top == -1)
+    if (isEmpty(ptr))
     {
         printf("stack Underflow\n");
     }
@@ -51,14 +63,14 @@ int parenthmatch(char *exp)  // will take char type input
         }
         else if (exp[i] == ')')
         {
-            if (sp->top == -1) // if empty
+            if (isEmpty(sp)) // if empty
             {
                 return 0;
             }
             pop(sp); // else
         }
     }
-    if (sp->top == -1) // if stack is finally empty => parenthesis Match
+    if (isEmpty(sp)) // if stack is finally empty => parenthesis Match
     {
         return 1;
     }

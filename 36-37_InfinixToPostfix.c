@@ -7,7 +7,17 @@ struct stack{
     int size;
     char *arr;
 };
-
+int isEmpty(struct stack *ptr){
+    if (ptr->top == -1)
+    {
+        return 1;       
+    }
+    else
+    {
+        return 0;
+    }
+    
+}
 // finding presudence
 int preced(char a){
     // if (a =='(' || a== ')' || a=='{' || a=='}' || a=='[' || a==']')
@@ -47,7 +57,7 @@ void push(struct stack *ptr, char val)
 }
 char pop(struct stack *ptr)  // to retuen char => char pop
 {
-    if (ptr->top == -1)
+    if (isEmpty(ptr))
     {
         printf("stack Underflow\n");
     }
@@ -95,7 +105,7 @@ char* intopo(char *infix){
         }
     }
     // moving left out operators to postfix array
-    while (sp->top != -1) // is not empty
+    while (!isEmpty(sp)) // is not empty
     {
         postfix[j] = pop(sp);
         j++;
