@@ -93,28 +93,5 @@ int main()
     {
         printf("Queue is Full\n");
     }
-// =========  H A R R Y'S  C O D E  ===========
-
-    // enqueue(q1, 12);
-    // enqueue(q1, 15);
-    // enqueue(q1, 1); 
-    // printf("Dequeuing element %d\n", dequeue(q1));
-    // printf("Dequeuing element %d\n", dequeue(q1));
-    // printf("Dequeuing element %d\n", dequeue(q1)); 
-    // enqueue(q1, 45);
-    // enqueue(q1, 45);
-    // enqueue(q1, 45);
-
-    // if(isEmpty(q1)){
-    //     printf("Queue is empty\n");
-    // }
-    // if(isFull(q1)){
-    //     printf("Queue is full\n");
-    // }
-
-    // printf("Now the queue is:\n");
-    // peek(q1, 1);
-    // peek(q1, 2);
-    // peek(q1, 3);
     return 0;
 }
