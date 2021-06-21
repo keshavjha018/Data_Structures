@@ -10,7 +10,7 @@ struct queue{
 };
 
 int isEmpty(struct queue * ptr){
-    if (ptr->r == ptr->r)
+    if (ptr->r == ptr->f)
     {
         return 1; // is empty
     }
@@ -34,6 +34,7 @@ void enqueue(struct queue * ptr, int val){
     {
         ptr->r++;
         ptr->arr[ptr->r] = val;
+        printf("Enqeued element: %d\n", val);
     }
 }
 
@@ -41,6 +42,7 @@ int dequeue(struct queue * ptr){
     // int a = -1; // just for reference = no need
     if (isEmpty(ptr))
     {
+        printf("Queue is Empty\n");
         return 0;
     }
     else
@@ -48,40 +50,65 @@ int dequeue(struct queue * ptr){
         ptr->f++;
         int a = ptr->arr[ptr->f];
 
-        // if both f & r are pointing to same location of array
-        // we can start with -1 again to save memory (tutorial 42)
-        if (ptr->f == ptr->r)
-        {
-            ptr->f = ptr->r = -1;
-        }
+        // // if both f & r are pointing to same location of array
+        // // we can start with -1 again to save memory (tutorial 42)
+        // if (ptr->f == ptr->r)
+        // {
+        //     ptr->f = ptr->r = -1;
+        // }
         
         return a;
     }
     
 }
 
-void peek(struct queue *ptr, int index){
-    printf("%d\n", ptr->arr[index + ptr->f]);
-}
+//PEEK DOESN'T WORK HERE
+// void peek(struct queue *ptr, int index){
+//     printf("%d\n", ptr->arr[index + ptr->f]);
+// }
 
 int main()
 {
     struct queue * q1 = (struct queue *) malloc(sizeof(struct queue));
-    q1->size = 20;
+    q1->size = 4;
     q1->f = -1;
     q1->r = -1;
     q1->arr = (int *) malloc(q1->size * sizeof(int));
 
     enqueue(q1, 23);
     enqueue(q1, 2);
-    peek(q1, 1);
-    peek(q1, 2);
+    enqueue(q1, 32);
 
-    dequeue(q1);
-    dequeue(q1);
+    printf("Dequeuing element %d\n", dequeue(q1));
+    printf("Dequeuing element %d\n", dequeue(q1));
+    printf("Dequeuing element %d\n", dequeue(q1));
+
     if (isEmpty(q1))
     {
         printf("Queue is Empty\n");
+    }
+    else if (isFull(q1))
+    {
+        printf("Queue is Full\n");
+    }
+    
+    // here we can observe that even  after dequeuing each element (ie queuw is made empty)
+    // still we cant enqueue elements furthur (it will show "queue Full")
+    //Because::==>
+    // as our front and rear pointer(index) moves to end of array and cant be furthur used
+    // t#is is the disadvantage of using linear queue
+    printf("\nProblem begins now:\n");
+    enqueue(q1, 33);
+    enqueue(q1, 35);
+    enqueue(q1, 54);
+
+    if (isEmpty(q1))
+    {
+        printf("Queue is Empty\n");
+    }
+    else if (isFull(q1))
+    {
+        printf("Queue is Full\n");
     }
     return 0;
 }
