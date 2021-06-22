@@ -101,7 +101,7 @@ int dequeueR(){
 }
 
 void display(struct node * ptr){
-    printf("Linked List is :\n");
+    printf("Queue is :\n");
     while (ptr != NULL)
     {
         printf("%d\n", ptr->data);
