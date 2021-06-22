@@ -62,10 +62,45 @@ int dequeue(struct queue * ptr){
     
 }
 
-//PEEK DOESN'T WORK HERE
-// void peek(struct queue *ptr, int index){
-//     printf("%d\n", ptr->arr[index + ptr->f]);
-// }
+void display(struct queue *ptr)
+{
+    if (ptr->r == -1)
+    {
+        printf("Queue is empty\n");
+    }
+    else
+    {
+        printf("Queue from end is: \n");
+        for (int i = ptr->r; i > ptr->f; i--)
+        {
+            printf("%d ", ptr->arr[i]);
+        }
+        printf("\n");
+    }
+}
+
+void count(struct queue *ptr)
+{
+    int count = 0;
+    for (int i = ptr->r; i > ptr->f; i--)
+    {
+        count++;
+    }
+    printf("Total no of elements: %d\n", count);
+}
+
+void peek(struct queue *ptr, int i){
+    if (ptr->r == -1)
+    {
+        printf("Queue is empty\n");
+    }
+    else
+    {
+        printf("Element at index %d is: %d\n", i, ptr->arr[i+1]);
+    }
+    
+}
+
 
 int main()
 {
@@ -78,6 +113,8 @@ int main()
     enqueue(q1, 23);
     enqueue(q1, 2);
     enqueue(q1, 32);
+
+    display(q1);
 
     printf("Dequeuing element %d\n", dequeue(q1));
     printf("Dequeuing element %d\n", dequeue(q1));
