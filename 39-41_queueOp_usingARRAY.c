@@ -89,18 +89,10 @@ void count(struct queue *ptr)
     printf("Total no of elements: %d\n", count);
 }
 
-void peek(struct queue *ptr, int i){
-    if (ptr->r == -1)
-    {
-        printf("Queue is empty\n");
-    }
-    else
-    {
-        printf("Element at index %d is: %d\n", i, ptr->arr[i+1]);
-    }
-    
+// peek means viewing topmost element
+void peek(struct queue *ptr){
+    printf("Peeked Element: %d\n", ptr->arr[ptr->r]);
 }
-
 
 int main()
 {
