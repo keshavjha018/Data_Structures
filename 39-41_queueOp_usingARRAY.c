@@ -5,7 +5,7 @@
 struct queue{
     int size;
     int f;  //front index counter
-    int r; // read index co.
+    int r; // rear index co.
     int *arr;
 };
 
