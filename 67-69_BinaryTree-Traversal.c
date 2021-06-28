@@ -16,13 +16,33 @@ struct node* createnode(int val){
     return n;
 }
 
-// preorder traversal
+// preorder traversal (root->left->right)
 void preorder(struct node* root){
     if (root != NULL)
     {
         printf("%d ", root->data);
         preorder(root->left);
         preorder(root->right);
+    }   
+}
+
+// postorder trav (left->right->root)
+void postorder(struct node * root){
+    if (root != NULL)
+    {
+        postorder(root->left);
+        postorder(root->right);
+        printf("%d ", root->data);
+    }
+}
+
+//inorder traversal (left->root->right)
+void inorder(struct node * root){
+    if (root != NULL)
+    {
+        inorder(root->left);
+        printf("%d ", root->data);
+        inorder(root->right);
     }
     
 }
@@ -44,5 +64,12 @@ int main()
    p2->left = p5;
 
    preorder(p);
-    return 0;
+   printf("\n");
+
+   postorder(p);
+   printf("\n");
+   
+   inorder(p);
+   
+   return 0;
 }
