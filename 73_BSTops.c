@@ -27,7 +27,7 @@ void inorder(struct node * root){
     
 }
 
-//search function in binary search tree
+//search function (Recursive) in binary search tree
 struct node* search(struct node* root, int key){
     if (root == NULL) // if empty tree
     {
@@ -48,6 +48,26 @@ struct node* search(struct node* root, int key){
     
 }
 
+//recursive search function
+struct node* ItrSearch(struct node * root, int key){
+    while (root!=NULL)
+    {
+        if (key == root->data)
+        {
+            return root;
+        }
+        else if (key > root->data)
+        {
+            root = root->right; // search in right subtree
+        }
+        else // key < root->data >> search in left subtree
+        {
+            root = root->left;
+        }
+    }
+    return NULL; //if root = NULL >> it will not enter the while loop
+}
+
 int main()
 {
     struct node* p = createnode(5);
@@ -64,10 +84,10 @@ int main()
 
     inorder(p);
 
-    struct node* n = search(p,11);
+    struct node* n = ItrSearch(p,1);
     if (n != NULL)
     {
-        printf("\nnumber found ! %d\n", n->data);
+        printf("\nnumber found >> %d\n", n->data);
     }
     else
     {
