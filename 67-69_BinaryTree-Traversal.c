@@ -63,12 +63,13 @@ int main()
    p1->right = p4;
    p2->left = p5;
 
+   printf("\n Preorder >> ");
    preorder(p);
-   printf("\n");
 
+   printf("\n Postorder >> ");
    postorder(p);
-   printf("\n");
    
+   printf("\n Inorder >> ");
    inorder(p);
    
    return 0;

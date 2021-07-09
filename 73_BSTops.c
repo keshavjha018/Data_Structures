@@ -1,4 +1,5 @@
-// operations in binary search tree - 1. searching
+// operations in binary search tree - 1. searching (Recursive), 2. Iterative search 3. Max/min value
+//4. Insertion in BST
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -68,6 +69,72 @@ struct node* ItrSearch(struct node * root, int key){
     return NULL; //if root = NULL >> it will not enter the while loop
 }
 
+// Function to find the node with maximum value
+int maxValue(struct node *node) 
+{
+    struct node *current = node;
+    int max = current->data; 
+    while (current != NULL)
+    {
+        if (current->data > max)
+        {
+            max = current->data;
+        }
+        current = current->right;
+    }
+    return max;
+}
+
+// Function to find the node with minimum value
+int minValue(struct node *node) 
+{
+    struct node *current = node;
+    int min = current->data ;
+    while (current != NULL)
+    {
+        if (current->data < min)
+        {
+            min = current->data;
+        }
+        current = current->left;
+    }
+    return min;
+}
+
+void insert(struct node *root, int key){
+    struct node *prev = NULL; // pointer which will traverse, and find the location/node for insertion
+    while(root != NULL) // finding location/node
+    {
+        prev = root;
+        if (key == root->data)
+        {
+            printf("Cant insert %d , Already in BST\n",key);
+            return;
+        }
+        else if (key>root->data)
+        {
+            root=root->right;
+        }
+        else
+        {
+            root=root->left;
+        }
+    }
+    // now, prev pointer holds the location/node where we can insert the given no
+    //creating new node & storing data(to be inserted)
+    struct node* new = createnode(key);
+    // inserting
+    if (key>prev->data)
+    {
+        prev->right=new;
+    }
+    else
+    {
+        prev->left=new;
+    }
+}
+
+
 int main()
 {
     struct node* p = createnode(5);
@@ -82,6 +149,14 @@ int main()
     p1->left = p3;
     p1->right = p4;
 
+    /*
+                 5
+               /   \ 
+              3     6
+            /  \      \
+           1    4      7
+    */
+
     inorder(p);
 
     struct node* n = ItrSearch(p,1);
@@ -94,6 +169,14 @@ int main()
         printf("\nNot found the given number\n");
     }
     
+    insert(p, 7);
+    printf("new element: %d\n",p->right->right->data);
+    inorder(p);
+    printf("\n");
+
+    // delete(p,3);
+    // inorder(p);
+
     return 0;
 
 }
