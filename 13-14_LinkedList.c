@@ -19,7 +19,16 @@ void printLinkedList(struct Node *ptr) // takes head pointer as input
         printf("element: %d \n", ptr->data); // prints data of that pointer
         ptr = ptr->next;  // points ptr to next node 
     }
-    
+}
+
+//function for printing list from reverse
+void reverseDisplayLL(struct Node *head)
+{
+    if (head != NULL)
+    {
+        reverseDisplayLL(head->next);
+        printf("%d ", head->data);
+    }
 }
 
 int main()
