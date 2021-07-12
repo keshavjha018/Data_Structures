@@ -1,5 +1,5 @@
 // operations in binary search tree - 1. searching (Recursive), 2. Iterative search 3. Max/min value
-//4. Insertion in BST
+//4. Insertion in BST    5. deletion
 
 #include <stdio.h>
 #include <stdlib.h>
