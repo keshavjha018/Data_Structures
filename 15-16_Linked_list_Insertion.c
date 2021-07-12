@@ -19,7 +19,7 @@ void printLinkedList(struct Node *ptr)
 }
 
 //Insertion of new element at 1st position
-struct Node * InsertatFirst(struct Node * head, int data)
+struct Node * InsertatFirst(struct Node *head, int data)
 {
     struct Node * ptr = (struct Node *) malloc(sizeof(struct Node));
     ptr->next = head;
