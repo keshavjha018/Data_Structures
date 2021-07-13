@@ -25,6 +25,22 @@ int isFull(struct circularQueue *ptr){
     return 0;
 }
 
+void display(struct circularQueue *q){
+    if (q->r == q->f)
+    {
+        printf("Queue is empty\n");
+    }
+    else
+    {
+        int i = q->f;
+        do
+        {
+            printf("%d ", q->arr[i+1]);
+            i = (i+1) % q->size ;
+        } while (i != q->r);   
+    }   
+}
+
 void enqueue(struct circularQueue *ptr, int val){
     if (isFull(ptr))
     {
