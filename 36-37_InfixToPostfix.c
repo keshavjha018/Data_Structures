@@ -60,7 +60,7 @@ int isFull(struct stack *ptr)
     }
 }
 
-void push(struct stack* ptr, char val)
+void push(struct stack *ptr, char val)
 {
     if (isFull(ptr))
     {
