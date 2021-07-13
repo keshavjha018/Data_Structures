@@ -31,6 +31,54 @@ void printlistfromEND(struct Node *end) // printing from end
     } while (ptr != NULL);
 }
 
+// struct node *head; or N1; should be made global for using these functions
+// and remove head as argument from insert function
+//insertion
+void insert(struct Node* head, int data){
+    struct Node *ptr = (struct Node *) malloc(sizeof(struct Node));
+    if (head == NULL)
+    {
+        ptr->data = data;
+        ptr->prev = NULL;
+        ptr->next = NULL;
+        head = ptr;
+    }
+    else
+    {
+        struct Node *temp = head;
+        // finding last node >> to insert
+        while (temp->next != NULL)
+        {
+            temp=temp->next;
+        }
+
+        temp->next = ptr;
+        ptr->data = data;
+        ptr->prev = temp;
+        ptr->next= NULL;
+        
+    }
+}
+
+//deleting a given value
+void delete(struct Node *head, int value){
+    struct Node *p = head;
+    struct Node *q = head->next;
+    while (q->data != value && q->next != NULL)
+    {
+        p= p->next;
+        q=q->next;
+    }
+    if (q->data == value)
+    {
+        p->next = q->next;
+        free(q);
+    }
+    
+    
+}
+
+
 int main()
 {
     //creating nodes
