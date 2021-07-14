@@ -58,6 +58,7 @@ int dequeue()
 }
 
 void display(struct node *ptr){
+    //takes front pointer as arg
     printf("Linked List: \n");
     while (ptr != NULL)
     {
