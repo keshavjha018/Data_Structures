@@ -45,7 +45,7 @@ void bubblesortAdaptive(int *arr, int n){
                 arr[j+1]= temp;
             }
         }
-        if (isSorted)  // if sorted the stop passing and end
+        if (isSorted)  // if sorted => stop passing and end the function
             return;
     }
 }
