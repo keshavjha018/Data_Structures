@@ -41,6 +41,8 @@ void heapsort(int arr[], int n){
     }
     //extract elements from heap to array
     for (int i = n-1; i >= 0 ; i--)
+    // i-- bcz =>> we are reducing size of heap after each iteration,
+    // as we need to delete /ignore last element which is to be swapped
     {
         // Move current root to end
         //swap
