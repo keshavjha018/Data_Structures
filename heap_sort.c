@@ -1,7 +1,9 @@
 #include <stdio.h>
 // K E S H A V
+
 //function for max heap
 // n = size of array, i = root
+//MAX HEAPIFY - to make a specific node - max heap
 void max_heapify(int arr[],int n,int i){
     int L = 2*i + 1; //left nodes for root = i
     int R = 2*i + 2;  //right nodes
@@ -33,6 +35,7 @@ void max_heapify(int arr[],int n,int i){
 }
 
 void heapsort(int arr[], int n){
+    //BUILD MAX HEAP - make full heap => Max heap
     // range of internal nodes => n/2 - 1 to 0
     for (int i = n/2 -1; i >= 0; i--)
     {
