@@ -15,7 +15,7 @@ struct node *insert(struct node *head,int data){
     {
         ptr=ptr->next;
     }
-    // ptr is the last node now
+    //  ptr is the last node now
     
     n->data = data;
     n->next = NULL;
