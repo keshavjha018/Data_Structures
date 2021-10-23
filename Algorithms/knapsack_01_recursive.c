@@ -41,3 +41,6 @@ int main()
     printf("Net Profit: %d ", net_profit);
     return 0;
 }
+
+// Time complexity = O(2^n)
+// Space complexity = O(1)  - no extra data str has been used for storing values

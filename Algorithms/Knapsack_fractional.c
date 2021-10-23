@@ -108,3 +108,5 @@ int main()
     printf("Net Profit: %f ", net_profit);
     return 0;
 }
+
+//TC = O(n*logn)
