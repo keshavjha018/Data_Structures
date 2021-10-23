@@ -41,6 +41,7 @@ int main()
     int wt[] = {10,20,30};
     int W = 50;
     int n = sizeof(val)/sizeof(val[0]);
+    // set all matrix ele to -1
     memset(t,-1,sizeof(t));
     int net_profit = knapsack01(wt,val, W, n);
     printf("Net Profit: %d ", net_profit);
