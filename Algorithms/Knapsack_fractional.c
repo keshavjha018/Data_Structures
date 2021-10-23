@@ -103,7 +103,7 @@ int main()
     float value[] = {50,60,70,70};
     float wt[] = {10,20,30,40};
     float capacity = 60;
-    int n = sizeof(value)/sizeof(float);
+    int n = sizeof(value)/sizeof(value[0]);
     float net_profit = fr_knapsack(n, value, wt, capacity);
     printf("Net Profit: %f ", net_profit);
     return 0;
