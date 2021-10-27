@@ -8,7 +8,7 @@ void display(int arr[], int n){
     printf("\n");
 }
 
-// fun to merge two given arrays
+// fun to merge two parts of array
 void merge(int A[] , int mid, int low, int high){
     int B[high+1];
     int i = low, j = mid+1, k = low;
