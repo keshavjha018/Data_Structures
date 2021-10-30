@@ -103,7 +103,7 @@ void job_seq(int profit[], int deadline[], int n){
         }
     }
     //printing results
-    printf("The max profit seq. of jobs is :\n");
+    printf("Sequence of jobs for max profit :\n");
     for (int i = 0; i < n; i++)
     {
         if (result[i] != -1)
@@ -120,7 +120,6 @@ int main()
     int deadline[] = {2,1,2,1,3};
     int n = sizeof(profit)/sizeof(profit[0]);
 
-    printf("Sequence of jobs for maximum profit: \n");
     job_seq(profit,deadline,n);
     
     return 0;
