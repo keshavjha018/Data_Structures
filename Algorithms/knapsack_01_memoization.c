@@ -1,4 +1,7 @@
 // implementation of 01 knapsack - memoization Approach
+// we store the already calculated values in a matrix, 
+// and use them if same case appear during solving the problem
+
 #include<stdio.h>
 #include <string.h>
 
@@ -14,7 +17,7 @@ int max(int a, int b){
 }
 
 int knapsack01(int wt[], int val[], int W, int n){
-    //base case
+    //base case / terminating case
     if (n==0 || W ==0)
         return 0;
 
